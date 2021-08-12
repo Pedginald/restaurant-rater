@@ -14,8 +14,9 @@ app.get('/api/v1/restaurants', async (req, res) => {
 	console.log(results);
 	res.status(200).json({
 		status: "success",
+		results: results.rows.length,
 		data: {
-			restaurants: ["mcdonalds", "wendys"]
+			restaurants: results.rows
 		}
 	});
 });
