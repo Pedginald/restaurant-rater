@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddRestaurant = () => {
 	return (
-		<div className='y-4'>
+		<div className='m-4'>
 			<form action=''>
 				<div className='row'>
 					<div className='col'>
@@ -21,7 +21,7 @@ const AddRestaurant = () => {
 							<option value='5'>$$$$$</option>
 						</select>
 					</div>
-					<button className='btn btn-primary col'>Add</button>
+					<button className='btn btn-primary col-2'>Add</button>
 				</div>
 			</form>
 		</div>
