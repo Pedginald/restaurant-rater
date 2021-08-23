@@ -32,11 +32,11 @@ const RestaurantList = (props) => {
 					</tr>
 				</thead>
 				<tbody className='table-dark'>
-					{restaurants.map(restaurant => {
+					{restaurants && restaurants.map(restaurant => {
 						return (
-							<tr>
-								<td>{restaurant.name}</td>
-								<td>{restaurant.location}</td>
+							<tr key={restaurant.id}>
+								<td className='text-capitalize'>{restaurant.name}</td>
+								<td className='text-capitalize'>{restaurant.location}</td>
 								<td>{'$'.repeat(restaurant.price_range)}</td>
 								<td>Reviews</td>
 								<td>
@@ -48,30 +48,6 @@ const RestaurantList = (props) => {
 							</tr>
 						)
 					})}
-{/* 					<tr>
-						<td>McDonalds</td>
-						<td>London</td>
-						<td>$$</td>
-						<td>Ratings</td>
-						<td>
-							<button className='btn btn-warning'>Update</button>
-						</td>
-						<td>
-							<button className='btn btn-danger'>Delete</button>
-						</td>
-					</tr>
-					<tr>
-						<td>McDonalds</td>
-						<td>London</td>
-						<td>$$</td>
-						<td>Ratings</td>
-						<td>
-							<button className='btn btn-warning'>Update</button>
-						</td>
-						<td>
-							<button className='btn btn-danger'>Delete</button>
-						</td>
-					</tr> */}
 				</tbody>
 			</table>
 		</div>
