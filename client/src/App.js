@@ -6,7 +6,7 @@ import Home from './routes/Home';
 
 const App = () => {
 	return (
-		<div>
+		<div className='container'>
 			<Router>
 				<Switch>
 					<Route exact path='/' component={Home}/>
