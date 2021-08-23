@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddRestaurant = () => {
 	return (
-		<div className='m-4'>
+		<div className='my-4'>
 			<form action=''>
 				<div className='row'>
 					<div className='col'>
