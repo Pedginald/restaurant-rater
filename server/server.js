@@ -12,7 +12,6 @@ app.use(express.json());
 app.get('/api/v1/restaurants', async (req, res) => {
 	try {
 		const results = await db.query('SELECT * FROM restaurants');
-		console.log(results);
 		res.status(200).json({
 			status: "success",
 			results: results.rows.length,
@@ -44,7 +43,6 @@ app.get('/api/v1/restaurants/:id', async (req, res) => {
 
 // Create a restaurant
 app.post('/api/v1/restaurants', async (req, res) => {
-	console.log(req.body);
 	try {
 		const result = await db.query(
 			'INSERT INTO restaurants (name, location, price_range) VALUES ($1, $2, $3) RETURNING *',
