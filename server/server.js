@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const db = require('./db');
 const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 3001;
 
 // Define middleware at the top of file
+app.use(cors);
 app.use(express.json());
 
 // Get all restaurants
