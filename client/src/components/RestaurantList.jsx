@@ -61,7 +61,7 @@ const RestaurantList = (props) => {
 								<td>
 									<button
 										className='btn btn-warning'
-										onClick={() => {handleUpdate(restaurant.id)}}
+										onClick={() => handleUpdate(restaurant.id)}
 									>
 										Update
 									</button>
