@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import RestaurantDetailPage from './routes/RestaurantDetailPage';
 import UpdatePage from './routes/UpdatePage';
 import Home from './routes/Home';
-import { RestaurantsContextProvider } from './context/RetsaurantsContext';
+import { RestaurantsContextProvider } from './context/RestaurantsContext';
 
 const App = () => {
 	return (

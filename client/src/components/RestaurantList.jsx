@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import RestaurantFinder from '../apis/RestaurantFinder';
-import { RestaurantsContext } from '../context/RetsaurantsContext';
+import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const RestaurantList = (props) => {
 	const { restaurants, setRestaurants } = useContext(RestaurantsContext);
