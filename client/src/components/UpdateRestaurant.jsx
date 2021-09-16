@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import RestaurantFinder from '../apis/RestaurantFinder';
 import { RestaurantsContext } from '../context/RestaurantsContext';
 
 const UpdateRestaurant = (props) => {
 	const { id } = useParams();
-	const { restaurants } = useContext(RestaurantsContext);
+	let history = useHistory();
 	const [name, setName] = useState('');
 	const [location, setLocation] = useState('');
 	const [priceRange, setPriceRange] = useState('');
@@ -21,10 +21,21 @@ const UpdateRestaurant = (props) => {
 		fetchData();
 	},[])
 
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const updatedRestaurant = await RestaurantFinder.put(`/${id}`, {
+			name,
+			location,
+			price_range: priceRange
+		})
+		console.log(updatedRestaurant);
+		history.push('/');
+	}
+
 	return (
 		<div>
 			<form action=''>
-			<div className='form-group'>
+			<div className='form-group mt-3'>
 				<label htmlFor='name'>Name</label>
 				<input
 					type='text'
@@ -35,7 +46,7 @@ const UpdateRestaurant = (props) => {
 				>
 				</input>
 			</div>
-			<div className='form-group'>
+			<div className='form-group mt-3'>
 				<label htmlFor='location'>Location</label>
 				<input
 					type='text'
@@ -46,17 +57,31 @@ const UpdateRestaurant = (props) => {
 				>
 				</input>
 			</div>
-			<div className='form-group'>
+			<div className='form-group mt-3'>
 				<label htmlFor='price_range'>Price Range</label>
-				<input
+				<select
 					type='number'
+					min='1'
+					max='5'
 					id='price_range'
 					className='form-control'
 					value={priceRange}
-					onChange={(e) => setPriceRange(e.target.vale)}
+					onChange={(e) => setPriceRange(e.target.value)}
 				>
-				</input>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
 			</div>
+			<button 
+				onClick={handleSubmit}
+				className='btn btn-primary mt-3'
+				type='submit'
+			>
+				Submit
+			</button>
 			</form>
 		</div>
 	)
