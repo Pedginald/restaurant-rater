@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AddReview = () => {
+	const [name, setName] = useState("");
+	const [reviewText, setReviewText] = useState("");
+	const [rating, setRating] = useState("Rating")
+
 	return (
 		<div className="mb-2">
 			<form action="">
 				<div className="form-row">
 					<div className="form-group col-8">
 						<label htmlFor="name">Name</label>
-						<input id="name" placeholder="name" type="text" className="form-control"/>
+						<input
+							value={name}
+							onChange={e => setName(e.target.value)}
+							id="name"
+							placeholder="Name"
+							type="text"
+							className="form-control"
+						/>
 					</div>
 					<div className="form-group col-4">
 						<label htmlFor="rating">Rating</label>
-						<select id="rating" className="custom-select">
+						<select
+							value={rating}
+							onChange={e => setRating(e.target.value)}
+							id="rating"
+							className="custom-select"
+						>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -22,7 +38,12 @@ const AddReview = () => {
 				</div>
 				<div className="form-group">
 					<label htmlFor="review">Review</label>
-					<textarea id="review" className="form-control"></textarea>
+					<textarea
+						value={reviewText}
+						onChange={e => setReviewText(e.target.value)}
+						id="review"
+						className="form-control"
+					/>
 				</div>
 				<button className="btn btn-primary">Submit</button>
 			</form>
